@@ -1,8 +1,11 @@
 package com.olimpio.bookstore.models;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 import java.util.UUID;
 
 @Entity
@@ -17,9 +20,17 @@ public class PublisherModel implements Serializable {
     @Column(nullable = false, unique = true)
     private String name;
 
+    @JsonProperty(access = JsonProperty.Access.WRITE_ONLY)
+    @OneToMany(mappedBy = "publisher", fetch = FetchType.LAZY)
+    private Set<BookModel> books = new HashSet<>();
+
+
     public void setId(UUID id) { this.id = id; }
     public UUID getId() { return id; }
 
     public void setName(String name) { this.name = name; }
     public String getName() { return name; }
+
+    public void setBooks(Set<BookModel> books) { this.books = books; }
+    public Set<BookModel> getBooks() { return books; }
 }

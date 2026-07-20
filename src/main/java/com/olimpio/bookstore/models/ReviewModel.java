@@ -17,6 +17,10 @@ public class ReviewModel implements Serializable {
     @Column(nullable = false)
     private String comment;
 
+    public void setId(UUID id) { this.id = id; }
+    public UUID getId() { return id; }
 
+    public void setComment(String comment) { this.comment = comment; }
+    public String getComment() { return comment; }
 
 }

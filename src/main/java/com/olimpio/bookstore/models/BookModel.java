@@ -17,9 +17,18 @@ public class BookModel implements Serializable {
     @Column(nullable = false, unique = true)
     private String title;
 
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "publisher_id")
+    private PublisherModel publisher;
+
     public void setId(UUID id) { this.id = id; }
     public UUID getId() { return id; }
 
     public void setTitle(String title) { this.title = title; }
     public String getTitle() { return title; }
+
+    public void setPublisher(PublisherModel publisher) { this.publisher = publisher; }
+    public PublisherModel getPublisher() { return publisher; }
+
+
 }
