@@ -14,7 +14,7 @@ public class PublisherModel implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String name;
 
     public void setId(UUID id) { this.id = id; }
