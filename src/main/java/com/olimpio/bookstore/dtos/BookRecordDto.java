@@ -1,4 +1,11 @@
 package com.olimpio.bookstore.dtos;
 
-public class BookRecordDto {
+import java.util.Set;
+import java.util.UUID;
+
+public record BookRecordDto(String title,
+                            UUID publisherId,
+                            Set<UUID> authorIds,
+                            String reviewComment
+                            ) {
 }

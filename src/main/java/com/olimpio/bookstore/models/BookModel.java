@@ -39,7 +39,7 @@ public class BookModel implements Serializable {
     public void setTitle(String title) { this.title = title; }
     public String getTitle() { return title; }
 
-    public void setPublisher(PublisherModel publisher) { this.publisher = publisher; }
+    public void setPublisher(AuthorModel publisher) { this.publisher = publisher; }
     public PublisherModel getPublisher() { return publisher; }
 
     public void setAuthors(Set<AuthorModel> authors) { this.authors = authors; }
